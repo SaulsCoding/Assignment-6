@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BankMobile.MainPage">
+
+    <StackLayout>
+        <Frame BackgroundColor="Aquamarine" Padding="24" CornerRadius="0">
+            <Label Text="Banking App" HorizontalOptions="Center" TextColor="DarkMagenta" FontSize="30"/>
+        </Frame>
+        <Label x:Name="WithdrawAmount" Text="0" HorizontalOptions="Center" FontAttributes="Bold"/>
+        <Label x:Name="DepositAmounts" Text="1000" HorizontalOptions="Center"/>
+        <Button x:Name="DepositButton"  Text="Deposit" Clicked="DepositButton_Clicked" />
+        <Button x:Name="WithdrawAmounts" Text="Withdraw" />
+        <Button x:Name="DisplayHistoryButton" Text="Transaction History" />
+
+    </StackLayout>
+
+</ContentPage>
