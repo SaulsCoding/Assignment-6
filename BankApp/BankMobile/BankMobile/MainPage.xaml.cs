@@ -13,7 +13,7 @@ namespace BankMobile
     public partial class MainPage : ContentPage
     {
 
-        private Bank _nedbank;
+        private Bank _fnb;
         public MainPage()
         {
             InitializeComponent();
@@ -21,8 +21,8 @@ namespace BankMobile
             Customer myNewCustomer = new Customer("7766445424", "10 me at home", "Bob", "The Builder");
             fnb.AddCustomer(myNewCustomer);
 
-            var account = myNewCustomer.ApplyForBankAccount();
-            account.DepositMoney(1500, DateTime.Now, "Stipend");
+            /*var account = myNewCustomer.ApplyForBankAccount();
+            account.DepositMoney(1500, DateTime.Now, "Stipend");*/
 
 
 
@@ -31,7 +31,9 @@ namespace BankMobile
 
         private void DepositButton_Clicked(object sender, EventArgs e)
         {
-
+            decimal amount = Decimal.Parse(withdrawAmount.Text.ToString());
+            string reason = depositAmount.Text.ToString();
+           
         }
 
         private void DisplayHistoryButton_Clicked(object sender, EventArgs e)
@@ -41,7 +43,7 @@ namespace BankMobile
 
         private void WithdrawAmounts_Clicked(object sender, EventArgs e)
         {
-
+           // string hsistory = account.
         }
     }
 }
