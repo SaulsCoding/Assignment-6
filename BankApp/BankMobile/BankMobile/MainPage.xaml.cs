@@ -17,10 +17,18 @@ namespace BankMobile
         public MainPage()
         {
             InitializeComponent();
+            Bank fnb = new Bank("First National Bank", 4324, "Kenilworth");
+            Customer myNewCustomer = new Customer("7766445424", "10 me at home", "Bob", "The Builder");
+            fnb.AddCustomer(myNewCustomer);
 
-            
 
-            
+
+
+        }
+
+        private void DepositButton_Clicked(object sender, EventArgs e)
+        {
+
         }
     }
 }
