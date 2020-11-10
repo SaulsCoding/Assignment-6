@@ -13,7 +13,7 @@ namespace BankMobile
     public partial class MainPage : ContentPage
     {
 
-        
+        private Bank _nedbank;
         public MainPage()
         {
             InitializeComponent();
@@ -21,12 +21,25 @@ namespace BankMobile
             Customer myNewCustomer = new Customer("7766445424", "10 me at home", "Bob", "The Builder");
             fnb.AddCustomer(myNewCustomer);
 
+            var account = myNewCustomer.ApplyForBankAccount();
+            account.DepositMoney(1500, DateTime.Now, "Stipend");
+
 
 
 
         }
 
         private void DepositButton_Clicked(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DisplayHistoryButton_Clicked(object sender, EventArgs e)
+        {
+
+        }
+
+        private void WithdrawAmounts_Clicked(object sender, EventArgs e)
         {
 
         }
