@@ -13,37 +13,39 @@ namespace BankMobile
     public partial class MainPage : ContentPage
     {
 
-        private Bank _fnb;
+        Bank fnb;
+        Customer myNewCustomer;
+        BankAccount account;
         public MainPage()
         {
             InitializeComponent();
             Bank fnb = new Bank("First National Bank", 4324, "Kenilworth");
             Customer myNewCustomer = new Customer("7766445424", "10 me at home", "Bob", "The Builder");
             fnb.AddCustomer(myNewCustomer);
-
-            /*var account = myNewCustomer.ApplyForBankAccount();
-            account.DepositMoney(1500, DateTime.Now, "Stipend");*/
-
-
-
+            account = myNewCustomer.ApplyForBankAccount();
 
         }
 
         private void DepositButton_Clicked(object sender, EventArgs e)
         {
+            decimal amount = Decimal.Parse(depositAmount.Text.ToString());
+            string reason = depositReason.Text.ToString();
+            account.DepositMoney(amount, DateTime.Now, reason);
+        }
+
+
+        private void WithdrawAmounts_Clicked(object sender, EventArgs e)
+        {
             decimal amount = Decimal.Parse(withdrawAmount.Text.ToString());
-            string reason = depositAmount.Text.ToString();
-           
+            string reason = withdrawReason.Text.ToString();
+
+            account.WithdrawMoney(amount, DateTime.Now, reason);
         }
 
         private void DisplayHistoryButton_Clicked(object sender, EventArgs e)
         {
-
-        }
-
-        private void WithdrawAmounts_Clicked(object sender, EventArgs e)
-        {
-           // string hsistory = account.
+            string history = account.GetTransactionHistory();
+            DisplayAlert("Transaction History", history, "Done");
         }
     }
 }

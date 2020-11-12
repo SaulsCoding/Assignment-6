@@ -11,13 +11,11 @@
         <Entry x:Name="depositAmount" Keyboard="Numeric" Placeholder="Enter Amount" />
         <Entry x:Name="depositReason" Placeholder="Provide Reason" Margin="0,23,0,0" MaxLength="30" WidthRequest="30"/>
         <Button x:Name="DepositButton"  Text="Deposit" Clicked="DepositButton_Clicked" />
+
         <Entry x:Name="withdrawAmount" Keyboard="Numeric" Placeholder="Enter Amount" />
-        <Entry x:Name="withReason" Placeholder="Provide Reason" Margin="0,23,0,0" MaxLength="30" WidthRequest="30"/>
+        <Entry x:Name="withdrawReason" Placeholder="Provide Reason" Margin="0,23,0,0" MaxLength="30" WidthRequest="30"/>
         <Button x:Name="WithdrawAmounts" Text="Withdraw" Clicked="WithdrawAmounts_Clicked"/>
-        
-        
-        
-        
+      
         <Button x:Name="DisplayHistoryButton" Text="Transaction History" Clicked="DisplayHistoryButton_Clicked" />
         <Label x:Name="TransactionHostory" HorizontalTextAlignment="Center" />
 
