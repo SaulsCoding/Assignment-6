@@ -13,8 +13,7 @@ namespace BankMobile
     public partial class MainPage : ContentPage
     {
 
-        Bank fnb;
-        Customer myNewCustomer;
+        
         private BankAccount _account;
         public MainPage()
         {
@@ -46,8 +45,9 @@ namespace BankMobile
 
         private void DisplayTransactionsButton_Clicked(object sender, EventArgs e)
         {
-            string history = _account.GetTransactionHistory();
-            DisplayTransactionsLabel.Text = _account.GetTransactionHistory();
+            
+            //DisplayTransactionsLabel.Text = _account.GetTransactionHistory();
+            Navigation.PushAsync(new TransactionsPage(_account));//give page some context and some data
         }
 
         private void WithdrawAmounts_Clicked(object sender, EventArgs e)
