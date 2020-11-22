@@ -15,37 +15,49 @@ namespace BankMobile
 
         Bank fnb;
         Customer myNewCustomer;
-        BankAccount account;
+        private BankAccount _account;
         public MainPage()
         {
             InitializeComponent();
+
             Bank fnb = new Bank("First National Bank", 4324, "Kenilworth");
             Customer myNewCustomer = new Customer("7766445424", "10 me at home", "Bob", "The Builder");
             fnb.AddCustomer(myNewCustomer);
-            account = myNewCustomer.ApplyForBankAccount();
+            
+            _account = myNewCustomer.ApplyForBankAccount();
 
         }
 
         private void DepositButton_Clicked(object sender, EventArgs e)
         {
-            decimal amount = Decimal.Parse(depositAmount.Text.ToString());
-            string reason = depositReason.Text.ToString();
-            account.DepositMoney(amount, DateTime.Now, reason);
+            decimal depositAmountEntry = 0;
+            var valid = decimal.TryParse(depositAmount.Text, out depositAmountEntry);
+            var reason = depositReason.Text;
+
+            if (valid)
+            {
+                _account.DepositMoney(depositAmountEntry, DateTime.Now, reason);
+            }
+            else
+            {
+                DisplayAlert("Validation Error", "Please Enter Number", "Cancel");
+            }
         }
 
+        private void DisplayTransactionsButton_Clicked(object sender, EventArgs e)
+        {
+            string history = _account.GetTransactionHistory();
+            DisplayTransactionsLabel.Text = _account.GetTransactionHistory();
+        }
 
         private void WithdrawAmounts_Clicked(object sender, EventArgs e)
         {
             decimal amount = Decimal.Parse(withdrawAmount.Text.ToString());
             string reason = withdrawReason.Text.ToString();
 
-            account.WithdrawMoney(amount, DateTime.Now, reason);
+            _account.WithdrawMoney(amount, DateTime.Now, reason);
         }
 
-        private void DisplayHistoryButton_Clicked(object sender, EventArgs e)
-        {
-            string history = account.GetTransactionHistory();
-            DisplayAlert("Transaction History", history, "Done");
-        }
+       
     }
 }
